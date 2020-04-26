@@ -31,7 +31,6 @@ Bundle 'LaTeX-Box-Team/LaTeX-Box'
 Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/solarized'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'ervandew/screen'
 
 "set rnu
@@ -74,6 +73,12 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 inoremap jj <Esc>
 nnoremap ; :
 let maplocalleader = " "
+
+let g:tex_flavor = "latex"
+autocmd filetype python     setlocal ts=4 sts=4 sw=4
+autocmd filetype tex        setlocal ts=2 sts=2 sw=2
+autocmd filetype html       setlocal ts=2 sts=2 sw=4
+autocmd filetype javascript setlocal ts=2 sts=2 sw=4
 
 " better vim split movement
 nnoremap <C-J> <C-W><C-J>
