@@ -2,6 +2,7 @@
 *
 
 # Except these guys
+!README.md
 !.gitignore
 !.vimrc
 !.bashrc
