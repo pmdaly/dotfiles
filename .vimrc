@@ -39,8 +39,13 @@ filetype plugin indent on
 
 "colorscheme solarized
 "let g:solarized_termcolors=256
-let g:gruvbox_italic=0
-colorscheme gruvbox
+try
+    colorscheme gruvbox
+    let g:gruvbox_italic=0
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme default " need better default
+endtry
+
 "let g:gruvbox_termcolors=256
 set background=dark
 "colorscheme Tomorrow-Night
