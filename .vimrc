@@ -32,6 +32,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/solarized'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'ervandew/screen'
+Bundle 'junegunn/fzf'
+Bundle 'neoclide/coc.nvim'
 
 "set rnu
 
