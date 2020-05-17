@@ -1,16 +1,15 @@
 " Setup!
-" vim +PlugInstall +qall > /dev/null
-
+" $ vim +PlugInstall +qall > /dev/null
+" coc requires node
+" $ curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+"
 " Where's my vim?
-" 
 " :version
 " :echo expand('~')
 " :echo $HOME
 " :echo $VIM
 " :echo $VIMRUNTIME
 "
-" May need to change this path.
-"set rtp+=~/.vim/bundle/Vundle.vim
 
 " auto install
 if empty(glob('~/.vim/autoload/plug.vim'))
