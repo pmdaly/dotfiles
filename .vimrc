@@ -71,6 +71,11 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 " set esc to jj and leader to space 
 inoremap jj <Esc>
 nnoremap ; :
+
+" coc completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 let maplocalleader = " "
 
 let g:tex_flavor = "latex"
