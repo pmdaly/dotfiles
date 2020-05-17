@@ -1,7 +1,5 @@
 " Setup!
-"
-" 1. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" 2. vim +PluginInstall +qall or :PluginInstall
+" vim +PlugInstall +qall > /dev/null
 
 " Where's my vim?
 " 
@@ -11,34 +9,30 @@
 " :echo $VIM
 " :echo $VIMRUNTIME
 "
-"
-"
-
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " May need to change this path.
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+"set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-Bundle 'dikiaap/minimalist'
-Bundle 'bling/vim-airline'
-"Bundle 'edkolev/tmuxline.vim'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
-Bundle 'scrooloose/nerdtree'
-Bundle 'altercation/solarized'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'ervandew/screen'
+" auto install
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-"set rnu
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-filetype plugin indent on
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'bling/vim-airline'
+Plug 'dikiaap/minimalist'
+Plug 'ervandew/screen'
+Plug 'flazz/vim-colorschemes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree'
 
-"colorscheme solarized
-"let g:solarized_termcolors=256
+" Initialize plugin system
+call plug#end()
+
 try
     colorscheme gruvbox
     let g:gruvbox_italic=0
@@ -46,29 +40,30 @@ catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default " need better default
 endtry
 
+filetype plugin indent on
+filetype off                  " required
+
 "let g:gruvbox_termcolors=256
-set background=dark
-"colorscheme Tomorrow-Night
 
 " Powerline setup
+set autoindent    " align the new line indent with the previous line
+set background=dark
+set backspace=indent,eol,start  " more powerful backspacing
+set cursorline	  " highlist current line
+set expandtab     " insert spaces when hitting TABs
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
-
-set textwidth=79  " lines longer than 79 columns will be broken
-set backspace=indent,eol,start  " more powerful backspacing
-set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
-set tabstop=4     " a hard TAB displays as 4 columns
-set expandtab     " insert spaces when hitting TABs
-set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
-set shiftround    " round indent to multiple of 'shiftwidth'
-set autoindent    " align the new line indent with the previous line
-set showcmd	  " show last command entered in the bottom bar
-set cursorline	  " highlist current line
-"set wildmenu	  " visual autocomplete
+set nocompatible              " be iMproved, required
+set nomodeline
 set number
 set relativenumber
-set nomodeline
+set shiftround    " round indent to multiple of 'shiftwidth'
+set shiftwidth=4  " operation >> indents 4 columns; << unindents 4 columns
+set showcmd	  " show last command entered in the bottom bar
+set softtabstop=4 " insert/delete 4 spaces when hitting a TAB/BACKSPACE
 set splitright
+set tabstop=4     " a hard TAB displays as 4 columns
+set textwidth=79  " lines longer than 79 columns will be broken
 
 syntax enable
 "autocmd vimenter * NERDTree " sets nerd tree to start up on vim load
