@@ -28,6 +28,8 @@ Plug 'ervandew/screen'
 Plug 'flazz/vim-colorschemes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -82,6 +84,10 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+"fzf
+nnoremap <LocalLeader>f :Files<CR>
+nnoremap <LocalLeader>ff :GFiles<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -222,3 +228,4 @@ function! GetVisual()
         return join(lines, "\n")
 endfunction
 "}}}
+
